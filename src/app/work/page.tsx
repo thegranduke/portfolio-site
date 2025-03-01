@@ -1,26 +1,29 @@
 import PROJECTS from '@/data/projects'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import Image from 'next/image'
 
 export default function Work() {
   return (
-    <div>
+    <div className="mt-16 p-10 relative bg-gradient-to-t from-white to-transparent">
       <h1 className="mb-8 text-2xl font-heading sm:text-4xl">Work</h1>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 ">
         {PROJECTS.map((project, id) => {
           return (
             <div
-              className="border-border dark:border-darkBorder shadow-light dark:shadow-dark rounded-base border-2 bg-main p-4 sm:p-5"
+              className="border-border dark:border-darkBorder shadow-light dark:shadow-dark rounded-base border-2 bg-main p-4 sm:p-5 "
               key={id}
             >
               <AspectRatio
-                className="border-border dark:border-darkBorder shadow-light dark:shadow-dark !-bottom-[2px] rounded-base border-2"
-                ratio={71 / 26}
+                className="border-border dark:border-darkBorder shadow-light dark:shadow-dark !-bottom-[2px] rounded-base border-2 "
+                ratio={16 / 9}
               >
-                <img
-                  className="w-full rounded-base"
-                  src={`${project.previewImage}`}
+                <Image
+                  src={project.previewImage}
                   alt={project.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-base"
                 />
               </AspectRatio>
 
